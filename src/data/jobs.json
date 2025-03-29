@@ -1,0 +1,57 @@
+[
+  {
+    "id": "1",
+    "title": "AWS Cloud Engineer",
+    "company": "CloudNova",
+    "location": "Remote (USA)",
+    "salary": "$120,000 - $140,000",
+    "tags": ["AWS", "Terraform", "CI/CD", "DevOps"],
+    "url": "https://example.com/jobs/aws-cloud-engineer",
+    "posted": "2025-03-28",
+    "description": "CloudNova is looking for an experienced AWS Cloud Engineer to join our remote team. You'll be responsible for designing, implementing, and managing cloud infrastructure using AWS services and Terraform."
+  },
+  {
+    "id": "2",
+    "title": "DevOps Engineer (Azure)",
+    "company": "BlueOps",
+    "location": "Remote (Europe)",
+    "salary": "€90,000 - €110,000",
+    "tags": ["Azure", "Kubernetes", "Ansible", "Linux"],
+    "url": "https://example.com/jobs/devops-engineer-azure",
+    "posted": "2025-03-27",
+    "description": "BlueOps is seeking a DevOps Engineer with strong Azure experience to help build and maintain our cloud infrastructure and CI/CD pipelines."
+  },
+  {
+    "id": "3",
+    "title": "Senior SRE",
+    "company": "TechSys",
+    "location": "Remote (Canada)",
+    "salary": "CAD 130,000 - 150,000",
+    "tags": ["Kubernetes", "Prometheus", "Go", "SRE"],
+    "url": "https://example.com/jobs/senior-sre",
+    "posted": "2025-03-26",
+    "description": "TechSys is looking for a Senior Site Reliability Engineer to join our growing platform team. You'll be working on our Kubernetes infrastructure and monitoring systems."
+  },
+  {
+    "id": "4",
+    "title": "Cloud Security Engineer",
+    "company": "SecureWave",
+    "location": "Remote (USA)",
+    "salary": "$140,000 - $160,000",
+    "tags": ["AWS", "Security", "IAM", "Compliance"],
+    "url": "https://example.com/jobs/cloud-security-engineer",
+    "posted": "2025-03-25",
+    "description": "SecureWave needs a Cloud Security Engineer to help secure our AWS infrastructure and ensure compliance with industry standards."
+  },
+  {
+    "id": "5",
+    "title": "GCP Cloud Architect",
+    "company": "CloudVision",
+    "location": "Remote (Europe)",
+    "salary": "€100,000 - €130,000",
+    "tags": ["GCP", "Terraform", "Kubernetes", "Cloud Architecture"],
+    "url": "https://example.com/jobs/gcp-cloud-architect",
+    "posted": "2025-03-24",
+    "description": "CloudVision is looking for a Google Cloud Platform Architect to design and implement scalable, secure cloud infrastructure for our clients."
+  }
+] 
