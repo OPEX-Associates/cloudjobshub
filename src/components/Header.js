@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [savedJobsCount, setSavedJobsCount] = useState(0);
   
   useEffect(() => {
     // Check for dark mode preference
@@ -17,6 +18,21 @@ const Header = () => {
     } else {
       setDarkMode(false);
       document.documentElement.classList.remove('dark');
+    }
+    
+    // Get saved jobs count
+    if (typeof window !== 'undefined') {
+      const savedJobs = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+      setSavedJobsCount(savedJobs.length);
+      
+      // Listen for storage changes
+      const handleStorageChange = () => {
+        const updatedSavedJobs = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+        setSavedJobsCount(updatedSavedJobs.length);
+      };
+      
+      window.addEventListener('storage', handleStorageChange);
+      return () => window.removeEventListener('storage', handleStorageChange);
     }
   }, []);
   
@@ -52,6 +68,23 @@ const Header = () => {
           </div>
           
           <div className="flex items-center">
+            {/* Saved Jobs */}
+            <Link 
+              to="/saved-jobs" 
+              className="mr-4 p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none relative"
+              aria-label="Saved Jobs"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+              </svg>
+              
+              {savedJobsCount > 0 && (
+                <span className="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {savedJobsCount}
+                </span>
+              )}
+            </Link>
+            
             {/* Dark mode toggle */}
             <button 
               onClick={toggleDarkMode}
@@ -93,6 +126,9 @@ const Header = () => {
             <Link to="/" className="block py-2 text-gray-600 dark:text-gray-300">Home</Link>
             <Link to="/jobs" className="block py-2 text-gray-600 dark:text-gray-300">Browse Jobs</Link>
             <Link to="/salary-insights" className="block py-2 text-gray-600 dark:text-gray-300">Salary Insights</Link>
+            <Link to="/saved-jobs" className="block py-2 text-gray-600 dark:text-gray-300">
+              Saved Jobs {savedJobsCount > 0 && <span className="ml-2 bg-primary text-white text-xs rounded-full px-2 py-1">{savedJobsCount}</span>}
+            </Link>
             <a href="#" className="block py-2 text-gray-600 dark:text-gray-300">Post a Job</a>
             <button className="mt-2 btn-primary w-full">Subscribe</button>
           </nav>
